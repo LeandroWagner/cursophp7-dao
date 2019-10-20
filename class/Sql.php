@@ -10,16 +10,16 @@ Class Sql extends PDO {
 		$this->conn = new PDO("mysql:host=localhost;dbname=bdphp7;", $login, $senha);	//Conexao usando banco mysql
 	} 
 	//-----------------------------------------------------------------
-	private function setParams($statment, $parameters = array()) {
+	private function setParams($statement, $parameters = array()) {
 		foreach ($parameters as $key => $value) {
-			$this->setParm($key, $value);
+			$this->setParam($statement,$key, $value);
 		}
 	}
 	//-----------------------------------------------------------------//Faz de um parametro
-	private function setParam($statment, $key, $value) {
-		foreach ($parameters as $key => $value) {
-			$statment->bindParam($key, $value);
-		}
+	private function setParam($statement, $key, $value) {
+		//foreach ($parameters as $key => $value) {
+			$statement->bindParam($key, $value);
+		//}
 
 	}
 	//-----------------------------------------------------------------
