@@ -17,10 +17,7 @@ Class Sql extends PDO {
 	}
 	//-----------------------------------------------------------------//Faz de um parametro
 	private function setParam($statement, $key, $value) {
-		//foreach ($parameters as $key => $value) {
-			$statement->bindParam($key, $value);
-		//}
-
+		$statement->bindParam($key, $value);
 	}
 	//-----------------------------------------------------------------
 	//rawQuery = query bruta
@@ -37,8 +34,5 @@ Class Sql extends PDO {
 		return $stmt->fetchAll(PDO::FETCH_ASSOC);					   //Dados associativos
 	}
 	//-----------------------------------------------------------------	
-
 }
-
-
 ?>
