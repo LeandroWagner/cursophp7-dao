@@ -65,5 +65,57 @@ Class Usuario {
 		//*/
 	}
 	//---------------------------------------------------------------
+	//Pode chamar direto o metodo
+	public static function getList() {
+		//Tras uma lista de usuarios
+		$sql = new Sql();
+		return $sql->select("SELECT * FROM login ORDER BY id;");
+
+	}
+	//Busca usuario 
+	public static function search($user) {
+		$sql = new Sql();
+		return $sql->select("SELECT * FROM login WHERE user LIKE :SEARCH ORDER BY user", array(
+			':SEARCH'=>"%".$user."%"
+
+
+		) );
+
+
+	}
+	//Pode chamar direto o metodo
+	public function login($user, $password) {
+		//Tras uma lista de usuarios
+		$sql = new Sql();
+		$results = $sql->select("SELECT * FROM login WHERE user =:USER AND password =:PASSWORD", array(
+			":USER"=>$user,
+			":PASSWORD"=>$password
+
+
+		));
+		//---------------------------------------------------------------
+		//Preenha os atributos
+		if (count($results) > 0 ){
+			$row = $results[0];
+
+			$this->setId($row['id']);
+			$this->setUser($row['user']);
+			$this->setPassword($row['password']);	
+
+		}else {
+
+			throw new Exception("User ou Password invalidos");
+			
+		}
+
+
+	}
+
+
+
+
+
+
+
 }
 ?>
