@@ -142,7 +142,7 @@ Class Usuario {
 		$this->password = $password;
 		
 		$sql = new Sql();
-		$results = $sql->query("UPDATE login set user = :USER, password = :PASSWORD where id = :ID", array(
+		$sql->query("UPDATE login set user = :USER, password = :PASSWORD where id = :ID", array(
 			':USER'=>$this->getUser(),
 			':PASSWORD'=>$this->getPassword(),
 			':ID'=>$this->getId()
@@ -150,5 +150,15 @@ Class Usuario {
 		// Recebe dois paramentro user e senha 
 	}
 	//---------------------------------------------------------------
+	//---------------------------------------------------------------
+	public function delete() {
+		$sql = new Sql();
+		$sql->query("DELETE FROM login where id = :ID", array(
+			':ID'=>$this->getId()
+		));
+		$this->setId(0);
+		$this->setUser(null);
+		$this->setPassword(null);
+	}
 }
 ?>

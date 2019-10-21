@@ -6,18 +6,21 @@ require_once("config.php");
 //$nome = new Usuario();
 //$nome->loadById(2);  
 //echo $nome;
+//---------------------------------------
 
 //---------------------------------------
 //Carrega uma lista de usuarios	- OK
 //---------------------------------------
 //$lista = Usuario::getList();
 //echo json_encode($lista);
+//---------------------------------------
 
 //---------------------------------------
 //Carrega lista buscando pelo login - OK
 //---------------------------------------
 //$search = Usuario::search("l");
 //echo json_encode($search);
+//---------------------------------------
 
 //---------------------------------------
 //Carrega um usuario e senha valido - OK
@@ -25,6 +28,7 @@ require_once("config.php");
 //$usuario  =  new Usuario();
 //$usuario->login("PEDRO","7777");
 //echo $usuario;
+//---------------------------------------
 
 //---------------------------------------
 //Cria usuario no sistema com set - OK
@@ -34,6 +38,7 @@ require_once("config.php");
 //$usuario->setPassword("7777");
 //$usuario->insert();
 //echo $usuario;
+//---------------------------------------
 
 //---------------------------------------
 //Cria usuario no sistema no construtor - OK
@@ -41,13 +46,24 @@ require_once("config.php");
 //$usuario  =  new Usuario("Felipe As", "7474");
 //$usuario->insert();
 //echo $usuario;
+//---------------------------------------
 
 //---------------------------------------
-//Update do usuio - OK
+//Update alrterar do usuario - OK
+//---------------------------------------
+//$usuario  =  new Usuario();
+//$usuario->loadById(5);  
+//$usuario->update("Ananias", "9885#"); 
+//echo $usuario;
+//---------------------------------------
+
+//---------------------------------------
+//Delete do usuario - OK
 //---------------------------------------
 $usuario  =  new Usuario();
-$usuario->loadById(5);  
-$usuario->update("Ananias", "9885#"); 
+$usuario->loadById(6);  
+$usuario->delete(); 
 echo $usuario;
-//echo $usuario;
+//---------------------------------------
+
 ?>
